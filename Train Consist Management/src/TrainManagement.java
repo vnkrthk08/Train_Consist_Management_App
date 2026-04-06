@@ -2,11 +2,19 @@ import java.util.*;
 
 public class TrainManagement {
     public static void main(String[] args) {
-        Set<String> ids = new HashSet<>();
-        ids.add("BG101");
-        ids.add("BG102");
-        ids.add("BG101");
+        LinkedList<String> train = new LinkedList<>();
 
-        System.out.println(ids);
+        train.add("Engine");
+        train.add("Sleeper");
+        train.add("AC");
+        train.add("Cargo");
+        train.add("Guard");
+
+        train.add(2, "Pantry");
+
+        train.removeFirst();
+        train.removeLast();
+
+        System.out.println(train);
     }
 }
