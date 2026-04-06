@@ -2,14 +2,14 @@ import java.util.*;
 
 public class TrainManagement {
     public static void main(String[] args) {
-        Set<String> train = new LinkedHashSet<>();
+        Map<String, Integer> map = new HashMap<>();
 
-        train.add("Engine");
-        train.add("Sleeper");
-        train.add("Cargo");
-        train.add("Guard");
-        train.add("Sleeper");
+        map.put("Sleeper", 72);
+        map.put("AC Chair", 56);
+        map.put("First Class", 40);
 
-        System.out.println(train);
+        for (Map.Entry<String, Integer> e : map.entrySet()) {
+            System.out.println(e.getKey() + " -> " + e.getValue());
+        }
     }
 }
