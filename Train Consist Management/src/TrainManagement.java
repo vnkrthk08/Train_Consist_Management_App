@@ -16,15 +16,12 @@ public class TrainManagement {
         List<Bogie> list = new ArrayList<>();
 
         list.add(new Bogie("Sleeper", 72));
+        list.add(new Bogie("Sleeper", 70));
         list.add(new Bogie("AC Chair", 56));
-        list.add(new Bogie("First Class", 40));
 
-        List<Bogie> result = list.stream()
-                .filter(b -> b.capacity > 60)
-                .collect(Collectors.toList());
+        Map<String, List<Bogie>> map = list.stream()
+                .collect(Collectors.groupingBy(b -> b.name));
 
-        for (Bogie b : result) {
-            System.out.println(b.name + " " + b.capacity);
-        }
+        System.out.println(map);
     }
 }
