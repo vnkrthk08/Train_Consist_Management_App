@@ -17,6 +17,13 @@ public class TrainManagement {
         return list.stream()
                 .map(b -> b.capacity)
                 .reduce(0, Integer::sum);
+    public Map<String, List<Bogie>> groupBogies(List<Bogie> list) {
+        return list.stream()
+                .collect(Collectors.groupingBy(b -> b.name));
+    public List<Bogie> filterBogies(List<Bogie> list, int threshold) {
+        return list.stream()
+                .filter(b -> b.capacity > threshold)
+                .collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
@@ -30,5 +37,9 @@ public class TrainManagement {
         int total = t.totalCapacity(list);
 
         System.out.println("Total capacity: " + total);
+        List<Bogie> result = t.filterBogies(list, 60);
+
+        TrainManagement t = new TrainManagement();
+        System.out.println(t.groupBogies(list));
     }
 }
