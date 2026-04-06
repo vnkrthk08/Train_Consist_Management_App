@@ -2,16 +2,11 @@ import java.util.*;
 
 public class TrainManagement {
     public static void main(String[] args) {
-        List<String> bogies = new ArrayList<>();
-        bogies.add("Sleeper");
-        bogies.add("AC Chair");
-        bogies.add("First Class");
+        Set<String> ids = new HashSet<>();
+        ids.add("BG101");
+        ids.add("BG102");
+        ids.add("BG101");
 
-        System.out.println(bogies);
-
-        bogies.remove("AC Chair");
-
-        System.out.println("Sleeper exists: " + bogies.contains("Sleeper"));
-        System.out.println(bogies);
+        System.out.println(ids);
     }
 }
