@@ -12,6 +12,12 @@ class Bogie {
 }
 
 public class TrainManagement {
+
+    public Map<String, List<Bogie>> groupBogies(List<Bogie> list) {
+        return list.stream()
+                .collect(Collectors.groupingBy(b -> b.name));
+    }
+
     public static void main(String[] args) {
         List<Bogie> list = new ArrayList<>();
 
@@ -19,9 +25,7 @@ public class TrainManagement {
         list.add(new Bogie("Sleeper", 70));
         list.add(new Bogie("AC Chair", 56));
 
-        Map<String, List<Bogie>> map = list.stream()
-                .collect(Collectors.groupingBy(b -> b.name));
-
-        System.out.println(map);
+        TrainManagement t = new TrainManagement();
+        System.out.println(t.groupBogies(list));
     }
 }
