@@ -13,6 +13,9 @@ class Bogie {
 
 public class TrainManagement {
 
+    public Map<String, List<Bogie>> groupBogies(List<Bogie> list) {
+        return list.stream()
+                .collect(Collectors.groupingBy(b -> b.name));
     public List<Bogie> filterBogies(List<Bogie> list, int threshold) {
         return list.stream()
                 .filter(b -> b.capacity > threshold)
@@ -23,14 +26,14 @@ public class TrainManagement {
         List<Bogie> list = new ArrayList<>();
 
         list.add(new Bogie("Sleeper", 72));
+        list.add(new Bogie("Sleeper", 70));
         list.add(new Bogie("AC Chair", 56));
         list.add(new Bogie("First Class", 40));
 
         TrainManagement t = new TrainManagement();
         List<Bogie> result = t.filterBogies(list, 60);
 
-        for (Bogie b : result) {
-            System.out.println(b.name + " " + b.capacity);
-        }
+        TrainManagement t = new TrainManagement();
+        System.out.println(t.groupBogies(list));
     }
 }
